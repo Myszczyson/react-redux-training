@@ -9,8 +9,10 @@ import Home from './components/views/Home/Home';
 import Trips from './components/views/Trips/TripsContainer';
 import Countries from './components/views/Countries/CountriesContainer';
 import Regions from './components/views/Regions/RegionsContainer';
+import Country from './components/views/Country/CountryContainer';
 import Info from './components/views/Info/Info';
 import NotFound from './components/views/NotFound/NotFound';
+import Trip from './components/views/Trip/TripContainer';
 
 import parseTrips from './utils/parseTrips';
 import {setMultipleStates} from './redux/globalRedux';
@@ -43,6 +45,8 @@ class App extends React.Component {
             <Route exact path='/trips' component={Trips} />
             <Route exact path='/countries' component={Countries} />
             <Route exact path='/regions' component={Regions} />
+            <Route exact path='/country/:id' component={Country} />
+            <Route exact path='/trip/:id' component={Trip} />
             {/* TODO - add more routes for other views */}
             <Route exact path='/info' component={Info} />
             <Route path='*' component={NotFound} />
