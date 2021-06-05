@@ -19,6 +19,34 @@ import Trip from './components/views/Trip/TripContainer';
 import parseTrips from './utils/parseTrips';
 import {setMultipleStates} from './redux/globalRedux';
 
+// we need to map the `scale` prop we define below
+// to the transform style property
+function mapStyles(styles) {
+  return {
+    opacity: styles.opacity,
+    top: `${styles.top}px`,
+  };
+}
+
+// child matches will...
+const slideTransition = {
+  // start in a transparent, upscaled state
+  atEnter: {
+    opacity: 0,
+    top: 200,
+  },
+  // leave in a transparent, downscaled state
+  atLeave: {
+    opacity: 0,
+    top: 0,
+  },
+  // and rest at an opaque, normally-scaled state
+  atActive: {
+    opacity: 1,
+    top: 0,
+  },
+};
+
 class App extends React.Component {
   static propTypes = {
     trips: PropTypes.array,
@@ -43,9 +71,10 @@ class App extends React.Component {
       <BrowserRouter>
         <MainLayout>
           <AnimatedSwitch
-            atEnter={{ opacity: 0 }}
-            atLeave={{ opacity: 0 }}
-            atActive={{ opacity: 1 }}
+            atEnter={slideTransition.atEnter}
+            atLeave={slideTransition.atLeave}
+            atActive={slideTransition.atActive}
+            mapStyles={mapStyles}
             className={styles.switchWrapper}
           >
             <Route exact path='/' component={Home} />
@@ -71,5 +100,6 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   setStates: newState => dispatch(setMultipleStates(newState)),
 });
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
