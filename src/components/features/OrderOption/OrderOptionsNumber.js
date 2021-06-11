@@ -3,7 +3,7 @@ import React from 'react';
 // import { formatPrice } from '../../../utils/formatPrice';
 import styles from './OrderOption.scss';
 
-const OrderOptionNumber= ({currentValue, setOptionValue}) => (
+const OrderOptionNumber= ({currentValue, setOptionValue, limits}) => (
   <div
     className={styles.number}
     value={currentValue}
@@ -11,12 +11,11 @@ const OrderOptionNumber= ({currentValue, setOptionValue}) => (
     <input
       type='number'
       className={styles.inputSmall}
-      defaultValue={currentValue}
-      min={1}
-      max={2}
+      value={currentValue}
+      min={limits.min}
+      max={limits.max}
       onChange={event => setOptionValue(event.currentTarget.value)}
-    >
-    </input>
+    />
   </div>
 );
 
