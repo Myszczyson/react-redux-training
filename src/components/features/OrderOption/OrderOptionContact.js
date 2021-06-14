@@ -2,21 +2,17 @@
 import React from 'react';
 import styles from './OrderOption.scss';
 
-const OrderOptionContact = (currentValue) => (
-  <form
+const OrderOptionContact = ({currentValue, setOptionValue}) => (
+  <div
     className={styles.component}
-    value={currentValue}
   >
     <input
+      value={currentValue}
       type='text'
       className={styles.component}
+      onChange={event => setOptionValue(event.currentTarget.value)}
     />
-    <input
-      type='email'
-      className={styles.component}
-    />
-
-  </form>
+  </div>
 );
 
 export default OrderOptionContact;
