@@ -6,7 +6,7 @@ import Icon from '../../common/Icon/Icon';
 
 const OrderOptionIcons = ({values, required, currentValue, setOptionValue}) => (
   <div
-    className={styles.icon}
+    // className={styles.icon} // comment for testing
     value={currentValue}
   >
     {!required ? '' : (
