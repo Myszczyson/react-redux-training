@@ -9,9 +9,13 @@ class HappyHourAd extends React.Component {
   constructor(){
     super();
 
-    setInterval(() => {
+    this.timer = setInterval(() => {
       this.forceUpdate();
     }, 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timer);
   }
 
   static propTypes = {
