@@ -1,4 +1,3 @@
-
 export const formatTime = (seconds) => {
   if(!seconds || isNaN(parseInt(seconds)) || seconds < 0) return null;
 
