@@ -56,6 +56,6 @@ describe('Component DaysToSummer with mocked Date', () => {
   checkDescriptionDaysToSummer('2021-09-23', '');
   checkDescriptionDaysToSummer('2021-09-24', '270 days to summer!');
   checkDescriptionDaysToSummer('2021-12-24', '179 days to summer!');
-  // checkDescriptionDaysToSummer('2022-04-25', '271 days to summer!');
+  checkDescriptionDaysToSummer('2022-04-25', '57 days to summer!');
 });
 
